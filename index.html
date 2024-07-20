@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Quiz</title>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Chettan+2:wght@500&display=swap" rel="stylesheet">
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        font-family: 'Baloo Chettan 2', cursive;
+        background-image: url('PictureQuizThumb.webp');
+        background-size: cover;
+        background-position: center;
+        color: #fff;
+    }
+
+    .container {
+        text-align: center;
+    }
+
+    header {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 4em;
+        margin-bottom: 20px;
+    }
+
+    button {
+        background-color: #ff6b9c;
+        color: #fff;
+        font-size: 1.5em;
+        padding: 15px 30px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease-in-out;
+    }
+
+    button:hover {
+        background-color: #d9446d;
+    }
+</style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Maths Quiz</h1>
+        </header>
+        <main><button>READY</button></main>
+    </div>
+</body>
+<script>
+    let button = document.querySelector('button');
+    button.addEventListener('click', () => {
+        window.location.href = '1stquiz.html';
+    })
+</script>
+
+</html>
