@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maths Quiz - Level 13</title>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Chettan+2:wght@500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .popup {
+            display: none;
+            position: absolute;
+            flex-direction: column;
+            gap: 35px;
+            justify-content: center;
+            align-items: center;
+            background-color: #ffa4c2;
+            width: 320px;
+            height: 220px;
+            border-radius: 10px;
+            border: 2px solid #d9446d;
+        }
+
+        .popup h1 {
+            font-size: 35px;
+        }
+
+        .popup button {
+            font-family: 'Baloo Chettan 2', cursive;
+            width: 140px;
+            height: 50px;
+            font-size: 17px;
+        }
+
+        body {
+            font-family: 'Baloo Chettan 2', cursive;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url(images/PictureQuiz.webp);
+            background-size: cover;
+            background-position: center;
+        }
+
+        .container {
+            text-align: center;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .question {
+            margin-bottom: 15px;
+        }
+
+        input {
+            width: 80%;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #ff6b9c;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #d9446d;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="popup">
+        <h1 class="firsth1s">incorrect answer</h1>
+        <span class="popups"></span>
+        <button class="Againt">Try Again</button>
+    </div>
+    <div class="container">
+        <h2>Math Quiz - Level 13</h2>
+        <form id="quiz-form">
+            <div class="question">
+                <label for="question1">What is 33 + 67?</label>
+                <input type="number" id="question1" name="question1" required>
+            </div>
+
+            <div class="question">
+                <label for="question2">What is 13 * 9?</label>
+                <input type="number" id="question2" name="question2" required>
+            </div>
+
+            <div class="question">
+                <label for="question3">What is 121 / 11?</label>
+                <input type="number" id="question3" name="question3" required>
+            </div>
+
+            <button type="button" class="submit1">Submit</button>
+
+        </form>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            let submit1 = document.querySelector('.submit1');
+            submit1.addEventListener('click', function () {
+                let answer1 = parseInt(document.querySelector("#question1").value, 10);
+                let answer2 = parseInt(document.querySelector("#question2").value, 10);
+                let answer3 = parseInt(document.querySelector("#question3").value, 10);
+                let popup = document.querySelector('.popup');
+                let firsth1s = document.querySelector('.firsth1s');
+                let popups = document.querySelector('.popups');
+                let againt = document.querySelector('.Againt');
+                let container = document.querySelector('.container');
+
+                if (answer1 === 100 && answer2 === 117 && answer3 === 11) {
+                    popup.style.display = 'flex';
+                    firsth1s.innerHTML = 'Correct answer!';
+                    popup.firstChild.innerHTML = 'Correct answer!';
+                    container.style.display = 'none';
+                    popups.innerHTML = 'Your all answers are correct!';
+                    againt.innerHTML = 'Next';
+
+                    againt.addEventListener('click', () => {
+                        window.location.href = '14quiz.html';
+                    })
+                } else {
+                    if (answer1 !== 100) {
+                        popups.innerHTML = 'Your first answer is incorrect!';
+                    }
+                    else if (answer2 !== 117) {
+                        popups.innerHTML = 'Your second answer is incorrect!';
+                    }
+                    else if (answer3 !== 11) {
+                        popups.innerHTML = 'Your third answer is incorrect!';
+                    }
+                    else if (answer1 !== 100 && answer2 !== 117) {
+                        popups.innerHTML = 'Your first and second answers are incorrect!';
+                    }
+                    else if (answer1 !== 100 && answer3 !== 11) {
+                        popups.innerHTML = 'Your first and third answers are incorrect!';
+                    }
+                    else if (answer2 !== 117 && answer3 !== 11) {
+                        popups.innerHTML = 'Your second and third answers are incorrect!';
+                    }
+                    else if (answer1 !== 100 && answer2 !== 117 && answer3 !== 11) {
+                        popups.innerHTML = 'Your all answers are incorrect!';
+                    }
+                    else {
+                        popups.innerHTML = '';
+                    }
+                    popup.style.display = 'flex';
+                    container.style.display = 'none';
+                    popup.addEventListener('click', () => {
+                        popup.style.display = 'none';
+                        container.style.display = 'inline'
+                    })
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>
